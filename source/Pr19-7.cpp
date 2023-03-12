@@ -21,26 +21,26 @@ constexpr int MAX_VALUES = 5;	// queue capacity
 //------------------------------------------------------------------------------
 int main() {
 
-	// create a queue to hold int values
-	IntQueue iQueue(MAX_VALUES);
+    // create a queue to hold int values
+    IntQueue iQueue(MAX_VALUES);
 
-	// enqueue a series of items
-	cout << "Enqueuing " << MAX_VALUES << " items...\n";
+    // enqueue a series of items
+    cout << "Enqueuing " << MAX_VALUES << " items...\n";
 
-	for (int x = 0; x < MAX_VALUES; x++)
-		iQueue.enqueue(x);
+    for (int x = 0; x < MAX_VALUES; x++)
+        iQueue.enqueue(x);
 
-	// try to enqueue just one more item
-	cout << "\nTrying to enqueue one more item...\n";
-	iQueue.enqueue(MAX_VALUES);
+    // try to enqueue just one more item
+    cout << "\nTrying to enqueue one more item...\n";
+    iQueue.enqueue(MAX_VALUES);
 
-	// dequeue and retrieve all items in the queue
-	cout << "\nQueue values:\n";
-	while (!iQueue.isEmpty()) {
-		int value;
-		iQueue.dequeue(value);
-		cout << value << '\n';
-	}
+    // dequeue and retrieve all items in the queue
+    cout << "\nQueue values:\n";
+    while (!iQueue.isEmpty()) {
+        int value;
+        iQueue.dequeue(value);
+        cout << value << '\n';
+    }
 
-	return 0;
+    return 0;
 }
