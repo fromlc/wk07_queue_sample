@@ -20,7 +20,7 @@ IntQueue::IntQueue(int size)
 //------------------------------------------------------------------------------
 // copy constructor
 //------------------------------------------------------------------------------
-IntQueue::IntQueue(const IntQueue& rhs)
+IntQueue::IntQueue(const IntQueue &rhs)
 {
     // allocate the new queue array
     queueArray = new int[rhs.queueSize];
@@ -49,8 +49,9 @@ void IntQueue::enqueue(int value)
     if (isFull())
         std::cout << "The queue is full.\n";
 
-    else {
-        // calculate the new tail position
+    else
+    {
+  // calculate the new tail position
         rear = (rear + 1) % queueSize;
 
         // insert new item
@@ -64,9 +65,9 @@ void IntQueue::enqueue(int value)
 //------------------------------------------------------------------------------
 // removes the value at the front of the queue and copies it into value
 //------------------------------------------------------------------------------
-void IntQueue::dequeue(int& value) 
+void IntQueue::dequeue(int &value)
 {
-    if (isEmpty()) 
+    if (isEmpty())
     {
         std::cout << "The queue is empty.\n";
         return;
@@ -83,6 +84,21 @@ void IntQueue::dequeue(int& value)
 }
 
 //------------------------------------------------------------------------------
+// copies the value at the front of the queue into value
+//------------------------------------------------------------------------------
+void IntQueue::peekFront(int &value)
+{
+    if (isEmpty())
+    {
+        std::cout << "The queue is empty.\n";
+        return;
+    }
+
+    // retrieve the front item
+    value = queueArray[front];
+}
+
+//------------------------------------------------------------------------------
 // returns true if the queue is empty, false otherwise
 //------------------------------------------------------------------------------
 bool IntQueue::isEmpty() const { return numItems ? false : true; }
@@ -96,7 +112,7 @@ bool IntQueue::isFull() const { return numItems < queueSize ? false : true; }
 // - sets the front and rear indices
 // - sets numItems to 0
 //------------------------------------------------------------------------------
-void IntQueue::clear() 
+void IntQueue::clear()
 {
     front = queueSize - 1;
     rear = queueSize - 1;
